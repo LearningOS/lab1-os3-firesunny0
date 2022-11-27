@@ -24,11 +24,11 @@ pub fn syscall(syscall_id: usize, args: [usize; 3]) -> isize {
             }
             sys_get_time(time, args[1] as usize)
         }
-        // _ => panic!("Unsupported syscall_id: {}", syscall_id),
-        _ => {
-            warn!("Unsupported syscall_id: {}", syscall_id);
-            exit_current_and_run_next();
-            0
-        }
+        _ => panic!("Unsupported syscall_id: {}", syscall_id),
+        // _ => {
+        //     warn!("Unsupported syscall_id: {}", syscall_id);
+        //     exit_current_and_run_next();
+        //     0
+        // }
     }
 }
