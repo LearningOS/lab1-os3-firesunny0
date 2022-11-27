@@ -31,3 +31,9 @@ impl<T> UPSafeCell<T> {
     //     self.inner.borrow_mut()
     // }
 }
+
+// impl<T> Drop for UPSafeCell<T> {
+//     fn drop(&mut self) {
+//         info!("UPSafeCell drop");
+//     }
+// }

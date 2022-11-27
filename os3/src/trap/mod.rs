@@ -25,10 +25,12 @@ pub fn trap_handler(cx: &mut TrapContext) -> &mut TrapContext {
     let stval = stval::read();
     match scause.cause() {
         Trap::Exception(Exception::UserEnvCall) => {
+            debug!("Env Call");
             cx.sepc += 4;
             cx.x[10] = syscall(cx.x[17], [cx.x[10], cx.x[11], cx.x[12]]) as usize;
         }
         Trap::Interrupt(Interrupt::SupervisorTimer) => {
+            debug!("Time Cycle");
             set_next_trigger();
             suspend_current_and_run_next();
         }
@@ -38,6 +40,10 @@ pub fn trap_handler(cx: &mut TrapContext) -> &mut TrapContext {
         }
         Trap::Exception(Exception::IllegalInstruction) => {
             error!("[kernel] IllegalInstruction in application, core dumped.");
+            exit_current_and_run_next();
+        }
+        Trap::Exception(Exception::InstructionFault) => {
+            error!("[kernel] InstructionFault in application, core dumped.");
             exit_current_and_run_next();
         }
         _ => {
