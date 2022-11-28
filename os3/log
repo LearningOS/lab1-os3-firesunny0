@@ -46,6 +46,8 @@ power_3 [50000/200000]
 power_3 [60000/200000]
 power_3 [70000/200000]
 power_3 [80000/200000]
+power_3 [90000/200000]
+power_3 [100000/200000]
 power_5 [10000/140000]
 power_5 [20000/140000]
 power_5 [30000/140000]
@@ -74,13 +76,15 @@ power_7 [80000/160000]
 power_7 [90000/160000]
 power_7 [100000/160000]
 power_7 [110000/160000]
-get_time OK! 532
-current time_msec = 533
+power_7 [120000/160000]
+power_7 [130000/160000]
+power_7 [140000/160000]
+power_7 [150000/160000]
+get_time OK! 517
+current time_msec = 518
 AAAAAAAAAA [1/5]
 BBBBBBBBBB [1/5]
 CCCCCCCCCC [1/5]
-power_3 [90000/200000]
-power_3 [100000/200000]
 power_3 [110000/200000]
 power_3 [120000/200000]
 power_3 [130000/200000]
@@ -94,17 +98,13 @@ power_3 [200000/200000]
 3^200000 = 871008973(MOD 998244353)
 Test power_3 OK!
 [kernel] Application exited with code 0
-power_7 [120000/160000]
-power_7 [130000/160000]
-power_7 [140000/160000]
-AAAAAAAAAA [2/5]
-BBBBBBBBBB [2/5]
-CCCCCCCCCC [2/5]
-power_7 [150000/160000]
 power_7 [160000/160000]
 7^160000 = 667897727(MOD 998244353)
 Test power_7 OK!
 [kernel] Application exited with code 0
+AAAAAAAAAA [2/5]
+BBBBBBBBBB [2/5]
+CCCCCCCCCC [2/5]
 AAAAAAAAAA [3/5]
 BBBBBBBBBB [3/5]
 CCCCCCCCCC [3/5]
@@ -116,11 +116,11 @@ BBBBBBBBBB [5/5]
 CCCCCCCCCC [5/5]
 Test write A OK!
 [kernel] Application exited with code 0
-Test write B OK!
-[kernel] Application exited with code 0
 Test write C OK!
 [kernel] Application exited with code 0
-time_msec = 634 after sleeping 100 ticks, delta = 101ms!
+Test write B OK!
+[kernel] Application exited with code 0
+time_msec = 619 after sleeping 100 ticks, delta = 101ms!
 Test sleep1 passed!
 [kernel] Application exited with code 0
 string from task info test

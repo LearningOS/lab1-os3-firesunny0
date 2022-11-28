@@ -1,7 +1,7 @@
 /*
  * @Author: firesunny
  * @Date: 2022-11-26 19:55:56
- * @LastEditTime: 2022-11-29 01:34:05
+ * @LastEditTime: 2022-11-29 02:57:19
  * @FilePath: /lab1-os3-firesunny0/os3/src/task/mod.rs
  * @Description:
  */
@@ -189,6 +189,12 @@ impl TaskManager {
         let mut inner = self.inner.exclusive_access();
         let current = inner.current_task;
         inner.tasks[current].task_info.syscall_times[syscall_id] += 1;
+        if current == 7 {
+            info!(
+                "task_id: {}, syscall_id:{}, syscall_cnt:{}",
+                current, syscall_id, inner.tasks[current].task_info.syscall_times[syscall_id]
+            );
+        }
         drop(inner);
     }
 
@@ -201,6 +207,7 @@ impl TaskManager {
         task_info.time = cur_task.task_info.real_time();
         (0..MAX_SYSCALL_NUM)
             .for_each(|i| task_info.syscall_times[i] = cur_task.task_info.syscall_times[i]);
+        debug!("169 syscall times: {}", task_info.syscall_times[169]);
     }
 
     // fn before_mark_suspend(&self) {}
