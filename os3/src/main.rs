@@ -48,6 +48,7 @@ pub fn rust_main() -> ! {
     info!("Apps load finished !");
     trap::enable_timer_interrupt();
     timer::set_next_trigger();
+    info!("Run first task !");
     task::run_first_task();
     panic!("Unreachable in rust_main!");
 }
